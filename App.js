@@ -1,16 +1,23 @@
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
-      <Text style={{ fontSize: 50, color: "red", textAlign:'center'}}>
-        Hellooooo World
-      </Text>
-      
-      <StatusBar style="auto" />
+function HomeScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
     </View>
   );
 }
